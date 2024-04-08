@@ -14,6 +14,10 @@ require(lubridate)
 data <- read.csv(file="https://onlinestatbook.com/case_studies_rvls/physical_strength/data.txt",sep="",header=TRUE)
 ```
 
+```{r}
+target<-data.frame(ARM=88, GRIP = 94)
+```
+
 ##model 1 SIMS~ARM
 
 ## scatter plot
@@ -27,10 +31,6 @@ basicARM + geom_point() + ggtitle ("SIMS VS ARM") + geom_smooth(method=lm)
 ```
 ```{r}
 model.1 <- lm(SIMS~ARM, data=data)
-```
-
-```{r}
-target<-data.frame(ARM=88, GRIP = 94)
 ```
 
 ```{r}
@@ -74,5 +74,27 @@ predict(model.3, target, interval=("confidence"))
 ```
 
 
+### using nova for models 1 and 3
+
+```{r}
+anova(model.1, model.3)
+```
 
 
+when comparing the models, it appears that the p-value is very small. the p-value being 4.994e. meaning the 3 model us better then the first model. since there is 30 point difference.
+
+### using nova for models 1 and 2
+
+```{r}
+anova(model.1, model.2)
+```
+
+theres no relationship between arm and grip. so there can't be a p-value. but from what we can see, we can see that the residual sum of squares for both model one and two, that model one has the less amount of square error.
+
+### using nova for models 2 and 3
+
+```{r}
+anova(model.2, model.3)
+```
+
+This one is showing that number 3 is better then number 2. meaning number 3 being the best out of all of them because the p-value for this one is 1.495e-09.
