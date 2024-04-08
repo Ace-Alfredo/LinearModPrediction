@@ -1,0 +1,32 @@
+---
+title: "WriteUp Linear Model with Prediction"
+Author "Alfredo Acevedo"
+Date "4/4/2024"
+output: html_document
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+require(tidyverse)
+require(tigerstats)
+require(lubridate)
+data <- read.csv(file="https://onlinestatbook.com/case_studies_rvls/physical_strength/data.txt",sep="",header=TRUE)
+```
+
+##model 1 SIMS~ARM
+
+## scatter plot
+
+```{r}
+basicNN <- ggplot(data,aes(y=SIMS,x=ARM))
+```
+
+```{r}
+basicNN + geom_point() + ggtitle ("SIMS VS ARM") + geom_smooth(method=lm)
+```
+
+
+
+
+
