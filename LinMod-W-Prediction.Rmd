@@ -1,7 +1,7 @@
 ---
 title: "WriteUp Linear Model with Prediction"
-Author "Alfredo Acevedo"
-Date "4/4/2024"
+Author: "Alfredo Acevedo"
+Date: "4/4/2024"
 output: html_document
 ---
   
